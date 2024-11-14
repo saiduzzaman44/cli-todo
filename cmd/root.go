@@ -1,7 +1,3 @@
-/*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
-*/
 package cmd
 
 import (
@@ -10,25 +6,28 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
-
-// rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "cli-todo",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Short: "A simple command line tool to manage your todos",
+	Long: `
+	The CLI To-Do application helps you manage your tasks directly from the command line.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	With this tool, you can:
+	- Add new tasks using the 'add' command, specifying details like name, importance, and due date. This allows you to create organized and prioritized to-dos with ease.
+	- Mark tasks as complete with the 'complete' command. This helps keep track of your progress and ensures you know which tasks are done and which are still pending.
+	- List all tasks with the 'list' command to view your to-dos at a glance. The list displays task names, importance levels, completion status, and dates, giving you a quick overview of all your tasks.
+
+	This CLI app stores your tasks in a local SQLite database, so all data is saved locally on your machine. Whether you're a productivity enthusiast or simply want a quick way to manage your to-dos, this application makes task management fast, efficient, and convenient.
+
+	Commands:
+	- add       Adds a new task to your to-do list
+	- complete  Marks a specified task as completed
+	- list      Displays all tasks in your to-do list with details
+
+	Get started by adding your first task, and enjoy seamless to-do management from your terminal!
+	`,
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
@@ -37,15 +36,5 @@ func Execute() {
 }
 
 func init() {
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
 
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.cli-todo.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
-
-
